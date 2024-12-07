@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-mapping>
+  <class name="com.klef.jfsd.ExamProject.Device" table="Device">
+    <id name="id" column="ID">
+      <generator class="increment" />
+    </id>
+    <property name="name" column="Name" />
+    <property name="price" column="Price" />
+
+    <joined-subclass name="com.klef.jfsd.ExamProject.SmartPhone" table="Smartphone">
+      <key column="ID" />
+      <property name="os" column="OS" />
+    </joined-subclass>
+
+    <joined-subclass name="com.klef.jfsd.ExamProject.Tablet" table="Tablet">
+      <key column="ID" />
+      <property name="screenSize" column="ScreenSize" />
+    </joined-subclass>
+  </class>
+</hibernate-mapping>
